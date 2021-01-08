@@ -1,0 +1,49 @@
+form{
+    padding: 100px;
+    border: 2px solid red;
+
+}
+#fname{
+    margin: 10px;
+    padding: 5px;
+}
+#email{
+    margin: 10px;
+    padding: 5px;
+}
+img{
+    float: right;
+    display: inline;
+    margin-right: 50%;
+    width: 200px;
+    height: 200px;
+
+}
+#cars{
+    margin: 10px;
+    padding: 5px;
+}
+a{
+    padding:10px;
+    background-color: green;
+    color: white;
+    text-decoration:none;
+
+
+}
+a:hover{
+
+    background-color: red;
+
+}
+.button{
+    margin-left: 20px;
+    padding: 10px;
+border: 2px solid grey;
+    background-color: green;
+    color:white;
+
+}
+.button:hover{
+    background-color: red;
+}

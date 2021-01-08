@@ -3,7 +3,7 @@
 <head>
 <title>HomePage</title>
 
-
+<link rel="stylesheet" href="cssstyle.css">
 <style>
 table, th, td {
   border: 3px solid black;
@@ -25,53 +25,74 @@ table, th, td {
 
 <hr>
 
-<table style="width:100%">
-<caption>This is table</caption>
-<tr>
-<th>Books</th> <th>Mobile</th> <th>computers</th>
-     </tr>
-<tr>
-<td>4</td> <td>4</td> <td>4</td>
-</tr>
-<tr>
-<td>4</td><td>4</td><td>4</td>
-</tr>
-<tr>
-<td>4</td><td>4</td><td>4</td>
-</tr>
-</table>
-<section style="width:100%">
-<iframe src="https://sitechecker.pro/wp-content/uploads/2019/04/iframe.jpg" name="ifram1" style="width:100%; height:200px;">
-</iframe>
+<form action="homepage.html"  method="get">
+<img src="https://icon2.cleanpng.com/20181110/spz/kisspng-computer-icons-login-scalable-vector-graphics-emai-5be73768cb2288.8298339815418796568321.jpg"
+     alt="login">
+<label for="fname">Full Name:</label> <br>
+<input type="text" id="fname" name="fname" autofocus value="Abdullah" readonly> <br>
 
-</section>
-<form action="homepage.html"  method="post">
-    <label for="fname">Full Name:</label> <br>
-    <input type="text" id="fname" name="fname" autofocus value="Abdullah" disabled> <br>
+<label for="email">Email:</label> <br>
+<input type="email" id="email" name="email" placeholder="abc@email.com" autofocus > <br>
 
-    <label for="email">Email:</label> <br>
-    <input type="email" id="email" name="email" > <br>
-
-    <label for="toyota">Toyota:</label>
-    <input type="radio" id="toyota" value="toyota" name="car"> <br>
-    <label for="honda">Honda:</label>
-    <input type="radio" id="honda" value="honda" name="car">   <br>
-    <label for="suzuki">Suzuki:</label>
-    <input type="radio" id="suzuki" value="suzuki" name="car">  <br> <br>
+<label for="toyota">Toyota:</label>
+<input type="radio" id="toyota" value="toyota" name="car">
+<label for="honda">Honda:</label>
+<input type="radio" id="honda" value="honda" name="car">
+<label for="suzuki">Suzuki:</label>
+<input type="radio" id="suzuki" value="suzuki" name="car">
+    <label for="cars">Choose a car:</label>
+    <select id="cars" name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+    <br> <br>
 
 
-             <input type="submit" value="Submit" >
+<input class="button" type="submit" value="Submit" >
+
+
 
 
 
 
 </form>
+<br>
+
+<a href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13606.3879470073!2d74.3470055!3d31.507759649999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1610107066308!5m2!1sen!2s"
+   target="ifram1">GoogleMaps</a>
+
+<br>
+<br>
+<br>
+<section style="width:100%">
+<iframe src="https://sitechecker.pro/wp-content/uploads/2019/04/iframe.jpg"
+        name="ifram1" style="width:100%; height:200px;">
+</iframe>
+
+</section>
+
+<table style="width:100%">
+    <caption>This is table</caption>
+    <tr>
+        <th>Books</th> <th>Mobile</th> <th>computers</th>
+    </tr>
+    <tr>
+        <td>4</td> <td>4</td> <td>4</td>
+    </tr>
+    <tr>
+        <td>4</td><td>4</td><td>4</td>
+    </tr>
+    <tr>
+        <td>4</td><td>4</td><td>4</td>
+    </tr>
+</table>
 
 
 
-<p style="color:red;">
-<a href="https://google.com" >Google.com</a>
-</p>
+
+
 
 
 
