@@ -5,28 +5,17 @@
     <title>Ip Address</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-
-
     <script>
 
         $(document).ready(function() {
-            $('#iptable').DataTable();
-        } );
-
-
-        $(document).ready(function() {
-            var table = $('#iptable').DataTable();
+            let table = $('#iptable').DataTable();
 
             $('#iptable tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
@@ -36,160 +25,63 @@
                     table.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
                 }
-            } );
+            });
 
             $('#deletebutton').click( function () {
                 table.row('.selected').remove().draw( false );
 
                     alert("Selected Row is deleted ");
-            }
-
-
-            );
-
-
-
-
-
-        } );
-
-
-
-        function myFunction() {
-
-
-            $.getJSON("http://api.ipstack.com/"+ipi.value+"?access_key=bb9f3cd5b7354870e08d9353e59a334b", function(result) {
-
-
-
-
-                var t = $('#iptable').DataTable();
-
+            });
+        });
+        function findCountry() {
+            $.getJSON("http://api.ipstack.com/"+ipinput.value+"?access_key=bb9f3cd5b7354870e08d9353e59a334b", function(result) {
+                let t = $('#iptable').DataTable();
                 t.row.add( [
                     result.ip,
                     result.country_name,
                     result.country_code,
                 ] ).draw( false );
-
-
-
-
-
-
             });
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
         $(document).ready( function () {
-
-
-
-            $('#ipi').keydown(function () {
+            $('#ipinput').keydown(function () {
                 this.value = this.value.replace(/[^0-9\.]/g,'');
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         });
 
-        function ValidateIPaddress(ipaddress)
+        function ValidateIPaddressAndWorking()
         {
-            if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipi.value))
+            if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipinput.value))
             {
-
-          myFunction();
-
+                findCountry();
                 return (true)
             }
             alert("You have entered an invalid IP address!")
             return (false)
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
-
     <style>
         .mydiv{
-
-
-
             height: 200px;
             width: 300px;
             background-color: gray;
         }
     </style>
-
 </head>
 <body>
-
 <div class="container">
     <div class="jumbotron">
-
         <h2>Enter IP Address to Get Country Name:</h2>
-
     </div>
-
     <div class="mydiv">
-
-
+        <br>
+<input id="ipinput" name="ipinput" type="text" style="margin: 5px" placeholder="Enter ip address...">
             <br>
-<input id="ipi" name="ipi" type="text" style="margin: 5px" placeholder="Enter ip address...">
-            <br>
-
-
-        <button id="submit" name="submit" style="margin: 10px" onclick="ValidateIPaddress(ipi.value)">Submit</button>
-
-
-
+        <button id="submit" name="submit" style="margin: 10px" onclick="ValidateIPaddressAndWorking(ipinput.value)">Submit</button>
     </div>
     <br>
     <button id="deletebutton" style="background-color: blue;color: #f2f2f2" >Delete selected row</button>
     <br> <br>
-
     <table id="iptable" class="display">
 <thead>
 <tr>
@@ -201,27 +93,8 @@
 </thead>
         <tbody id="tb">
 
-
-
-
-
-
         </tbody>
-
     </table>
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
 </body>
 </html>
